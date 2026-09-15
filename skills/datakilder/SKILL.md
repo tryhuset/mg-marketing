@@ -51,13 +51,15 @@ GROUP BY b.Category, n.CustomerName ORDER BY n.CustomerName, b.Category
 Kategorinavnene er tekniske. Skriv `byggevare` som «Byggevare», `rorlegger` som «Rørlegger/VVS»,
 `baderom` som «Baderom», `maling` som «Maling», `gulv` som «Gulv».
 
-Merkevaretrackingen skal inn i den samme oversikten som de andre kildene, ikke stå som en løs linje
-under. Én kjede kan være målt i flere kategorier – list dem, de er forskjellige undersøkelser.
+**Merkevaretrackingen står som en egen kommentar under hovedtabellen, ikke som en kolonne i den.** Én
+kjede kan være målt i flere kategorier, og en enkelt dato i en matrisecelle skjuler nettopp det. Skriv
+den som noen linjer: hvilke kjeder som er med, i hvilke kategorier, periode og sist oppdatert. Nevn også
+hvilke kjeder som ikke er med i trackingen – det er et like reelt svar.
 
 **Undersøkelsen måler også konkurrentenes merkevarer**, og de radene har ingen selskaps-ID. `INNER JOIN`
-holder dem utenfor denne oversikten, fordi spørsmålet er hvilke kilder kunden har – ikke hvilke merkevarer
-undersøkelsen dekker. Det er `markedsdata` sin jobb. Å lese konkurrentmålingene er helt i orden: kunden
-har selv bestilt undersøkelsen, og det er hele poenget med en merkevaretracker.
+holder dem utenfor kildeoversikten, fordi spørsmålet her er hvilke kilder kunden har – ikke hvilke
+merkevarer undersøkelsen dekker. Å bruke konkurrentmålingene til analyse er helt i orden; det er
+`markedsdata` sin jobb, og kunden har bestilt undersøkelsen nettopp for å se seg mot konkurrentene.
 
 ## Navn du bruker i svaret
 
