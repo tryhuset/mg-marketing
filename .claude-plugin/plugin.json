@@ -1,0 +1,19 @@
+{
+  "name": "mg-marketing",
+  "displayName": "Mestergruppen marketing",
+  "version": "0.1.0",
+  "description": "Samtalebasert analyse av egen markedsdata for Mestergruppen. Gir tolkning på markedssjefsnivå: kobler tall til forretning, filtrerer bort støy og bagateller, og utfordrer feilslutninger i stedet for å bekrefte dem. Bygget for brukere med lav teknisk forståelse. Bruker TRY Data-connectoren som datakilde. Inneholder Mestergruppens merkevare- og visualiseringsprofil, slik at rapporter og dashboards ser ut som Mestergruppens eget materiale.",
+  "author": {
+    "name": "TRY"
+  },
+  "keywords": [
+    "mestergruppen",
+    "analytics",
+    "markedsdata",
+    "conversational-analytics",
+    "markedsforing",
+    "rapport",
+    "dataviz",
+    "merkevare"
+  ]
+}

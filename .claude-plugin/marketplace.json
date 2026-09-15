@@ -1,0 +1,14 @@
+{
+  "name": "tryhuset-mg",
+  "owner": {
+    "name": "TRY"
+  },
+  "description": "TRYs marketplace for Mestergruppen.",
+  "plugins": [
+    {
+      "name": "mg-marketing",
+      "source": "./",
+      "description": "Samtalebasert analyse av egen markedsdata, med Mestergruppens merkevare- og visualiseringsprofil."
+    }
+  ]
+}
