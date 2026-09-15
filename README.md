@@ -30,6 +30,7 @@ Pakken løser tre ting:
 | Skill | Rolle |
 |---|---|
 | `markedsdata` | Hovedskillen. Samtaleprotokoll, modusgjenkjenning, tolkningsvern, forretningsramme, kanalnivå, korreksjonsmønstre. Utløses av alle spørsmål om data. |
+| `datakilder` | Viser hvilke kilder som er tilgjengelige, hva de inneholder, hvilken periode de dekker og når de sist ble oppdatert. Slås opp live – aldri fra en liste. |
 | `kunderapport` | Bygger rapporter og dashboards i Mestergruppens profil, med obligatorisk tallverifikasjon. |
 | `mg-brand` | Mestergruppens visuelle identitet og tone: farger, typografi, logo, språk, formatregler. |
 | `mg-dataviz` | Regler for datavisualisering: diagramvalg, merking, fargesystem og tilgjengelighet. |
@@ -70,6 +71,10 @@ gjennomgått før tilgang gis.
 ## Versjon
 
 0.1.0 – september 2026. Bygget på TRYs kundepakke `try-analytics-kunde` 0.3.1 av Kristoffer Semelenge, TRY.
+
+Kundepakken ble blindtestet mot Mestergruppens egne XL-BYGG-data i august 2026, mot Claude uten skill og mot
+TRYs interne fagpakke. Den vant begge dommerrunder (25,0 av 28, mot 21,5 uten skill). Forspranget lå i
+kildedisiplin og tolkningsvern – nøyaktig de feilene en sluttbruker uten rådgiver ikke kan oppdage selv.
 
 **Fagansvarlig for metodikken: [TODO].** Pakken skal ikke deles til Mestergruppen før dette feltet har et navn. Den
 gjengir over 40 forskningsfunn til en ekstern mottaker; en kundevendt skill uten navngitt eier er en skill ingen
