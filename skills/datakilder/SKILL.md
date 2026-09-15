@@ -33,15 +33,31 @@ selskap – de hører ikke til noen, og skal ikke vises som om de gjorde det.
 
 ## Spørring 2 – merkevaretracking
 
-Den ligger på undersøkelseskategori, ikke på selskap, og må hentes for seg:
+Den har ingen selskapsnavn-kolonne, bare en selskaps-ID, så navnet hentes fra de andre kildene:
 
 ```sql
-SELECT Category, MIN(ResponseDate) AS FraDato, MAX(ResponseDate) AS TilDato, MAX(LoadedAt) AS SistOppdatert
-FROM dbo.fact_brand_tracking GROUP BY Category ORDER BY Category
+WITH navn AS (
+  SELECT DISTINCT CustomerID, CustomerName FROM dbo.fact_pos_sales WHERE CustomerName IS NOT NULL
+  UNION SELECT DISTINCT CustomerID, CustomerName FROM dbo.fact_online_commerce WHERE CustomerName IS NOT NULL
+  UNION SELECT DISTINCT CustomerID, CustomerName FROM dbo.fact_lead_forms WHERE CustomerName IS NOT NULL
+  UNION SELECT DISTINCT CustomerID, CustomerName FROM dbo.fact_paid_media_performance WHERE CustomerName IS NOT NULL
+)
+SELECT b.Category, n.CustomerName, MIN(b.ResponseDate) AS FraDato, MAX(b.ResponseDate) AS TilDato,
+       MAX(b.LoadedAt) AS SistOppdatert
+FROM dbo.fact_brand_tracking b INNER JOIN navn n ON n.CustomerID = b.CustomerID
+GROUP BY b.Category, n.CustomerName ORDER BY n.CustomerName, b.Category
 ```
 
 Kategorinavnene er tekniske. Skriv `byggevare` som «Byggevare», `rorlegger` som «Rørlegger/VVS»,
 `baderom` som «Baderom», `maling` som «Maling», `gulv` som «Gulv».
+
+Merkevaretrackingen skal inn i den samme oversikten som de andre kildene, ikke stå som en løs linje
+under. Én kjede kan være målt i flere kategorier – list dem, de er forskjellige undersøkelser.
+
+**Undersøkelsen måler også konkurrentenes merkevarer**, og de radene har ingen selskaps-ID. `INNER JOIN`
+holder dem utenfor denne oversikten, fordi spørsmålet er hvilke kilder kunden har – ikke hvilke merkevarer
+undersøkelsen dekker. Det er `markedsdata` sin jobb. Å lese konkurrentmålingene er helt i orden: kunden
+har selv bestilt undersøkelsen, og det er hele poenget med en merkevaretracker.
 
 ## Navn du bruker i svaret
 
