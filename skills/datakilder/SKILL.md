@@ -59,10 +59,17 @@ Kildeverdiene er tekniske. Oversett dem, alltid:
 | `tiktok_ads` | TikTok |
 | `readpeak` | Native annonsering (Readpeak) |
 | `adnuntius` | Display og banner (Adnuntius) |
-| `mestergruppen_pos` | Butikksalg fra kjedenes medlemsbutikker |
-| `omnium` | Kjedenes nettbutikk og nettskjemaer |
+| `mestergruppen_pos` | Diveport (kassesystem) |
+| `omnium` | Omnium |
 | `google_analytics_ga4` | Google Analytics |
 | `google_search_console` | Google Search Console |
+
+Merkevaretrackingen kommer fra **Norstat**. Den har ingen kildekolonne i dataen, så navnet står her.
+
+**Navngi alltid systemet dataen kommer fra, ikke bare hva den handler om.** Brukeren spør hvilke kilder hun
+har – «Omnium» og «Norstat» er svaret, «nettbutikk» og «merkevaretracking» er hva de inneholder. Skriv
+begge: «Omnium – nettbutikk», «Omnium – henvendelser», «Norstat – merkevaretracking». Dette er kundens
+egne systemer; de vet hva de heter, og et forretningsord i stedet for systemnavnet skjuler det de spurte om.
 
 Google Ads og Performance Max er to kilder i dataen. Nevn begge, og si at et samlet Google-tall må ha begge.
 
